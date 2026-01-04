@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const { Poru } = require('poru');
 const { Spotify } = require('poru-spotify');
@@ -398,7 +399,7 @@ process.on('SIGINT', () => {
 });
 
 printLoading('Discord authentication');
-client.login(config.BOT_TOKEN).catch((error) => {
+client.login(process.env.BOT_TOKEN).catch((error) => {
     printError(`Failed to login: ${error.message}`);
     process.exit(1);
 });
