@@ -96,6 +96,10 @@ const client = new Client({
         GatewayIntentBits.GuildVoiceStates
     ]
 });
+// Client oluşturulduktan ve komut koleksiyonları tanımlandıktan sonra
+client.on("ready", () => {
+    console.log(`${client.user.tag} is online!`);
+});
 
 client.commands = new Collection();
 client.prefixCommands = new Collection();
