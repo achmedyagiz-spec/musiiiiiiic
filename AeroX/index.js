@@ -417,13 +417,8 @@ client.login(process.env.BOT_TOKEN).catch((error) => {
 // Sunucu oluşturma ve proje aktivitesi sağlama.
 const express = require('express');
 const app = express();
-const port = 10000;
 
-// Web sunucu
-app.get('/', (req, res) => {
-  res.sendStatus(200);
-});
+app.get('/', (req, res) => res.send('AeroX Music Bot is running!'));
 
-app.listen(port, () => {
-  console.log(`Sunucu ${port} numaralı bağlantı noktasında yürütülüyor.`);
-});
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`Web server listening on port ${PORT}`));
